@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<template
+    format="5"
+    revision="5"
+    name="Android Annotation Fragment"
+    minApi="7"
+    minBuildApi="14"
+    description="Creates a fragment and xml file for its layout">
+
+
+    <globals file="globals.xml.ftl" />
+    <category value="Quick Fragment" />
+    <formfactor value="Mobile" />
+
+    <parameter
+        id="packageName"
+        name="Root Directory"
+        type="string"
+        constraints="package"
+        help="This is where the generated files will be placed"
+        default="${escapeXmlAttribute(srcOut)}" />
+
+    <parameter
+        id="feature"
+        name="Fragment name"
+        type="string"
+        constraints="class|unique|nonempty"
+        default="SkylineFeature"
+        help="The name of the view" />
+
+     <parameter
+        id="fragment"
+        name="Fragment name"
+        type="string"
+        constraints="class|nonempty|unique"
+        suggest="${feature}Fragment"
+        default="${feature}Fragment"
+        help="The name of the Module to create" />
+
+
+
+<!-- 
+    <parameter
+        id="documentation"
+        name="Generate documentation"
+        type="boolean"
+        default="false"
+        help="Will generate useful documentation on how to use the project" />
+
+     <parameter
+        id="customView"
+        name="Generate customView"
+        type="boolean"
+        default="false"
+        help="Will generate a customView, its xml and add attrs." />
+ -->
+
+    <!-- 512x512 thumbnails relative to template.xml -->
+    <thumbs>
+        <!-- default thumbnail is required -->
+        <thumb>app_icon.png</thumb>
+    </thumbs>
+
+    <execute file="recipe.xml.ftl" />
+
+</template>
